@@ -6,7 +6,7 @@ const projects = [
     description: "Researching whether prompt structure and specification design can help predict security risks in AI-generated code, reducing token costs of full code generation methods by up to 41%.",
     tools: ["Python", "Bandit/CodeQL", "Langchain", "Code Security", "Prompt analysis"],
     imageUrl: "",
-    videoUrl: "assets/Secure Code Generation.mp4",
+    videoUrl: "assets/Secure Code Generation web.mp4",
     youtubeId: ""
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     description: "Going from natural language requirements to a deterministic software specification, documentation and implementation using Dr. Kung's fourteen step software construction methodology .",
     tools: ["Java", "AI / machine learning", "Visual interface", "UML", "Team project"],
     imageUrl: "",
-    videoUrl: "assets/Senior Design.mp4",
+    videoUrl: "assets/Senior Design web.mp4",
     youtubeId: ""
   }
 ];
