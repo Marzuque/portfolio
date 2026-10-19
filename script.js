@@ -41,20 +41,22 @@ const constellations = [
     kind: "Hackathon / applied AI",
     timeframe: "HACKATHON",
     pattern: "recipe-orbit",
+    projectNodeIndex: 0,
+    projectLabelSide: "top",
     description: "An interactive recipe tool that adapts ingredients to dietary constraints and uses language models to suggest substitutions with nutritional comparisons.",
     skills: [
-      { name: "LLM integration", detail: "Applied language-model components to generate context-aware ingredient substitutions." },
-      { name: "Dietary constraints", detail: "Adapted recipes for requirements such as vegan and gluten-free diets." },
-      { name: "Ingredient substitution", detail: "Mapped recipe ingredients to suitable alternatives." },
-      { name: "Nutrition comparison", detail: "Presented nutritional comparisons to support personalized decisions." },
-      { name: "Streamlit", detail: "Built an interactive interface for the end-to-end prototype." },
-      { name: "MongoDB Atlas", detail: "Stored recipes in a cloud-hosted document database." },
-      { name: "Product prototyping", detail: "Delivered a usable prototype connecting the core experience." },
-      { name: "Personalization", detail: "Tailored recipe suggestions to individual dietary needs." },
-      { name: "Usability-first design", detail: "Kept dietary preferences and an easy-to-use experience central to the prototype." }
+      { name: "MongoDB Atlas", detail: "Stored recipes in a cloud-hosted document database.", labelSide: "top" },
+      { name: "LLM integration", detail: "Generated context-aware ingredient substitution suggestions.", labelSide: "bottom" },
+      { name: "Dietary constraints", detail: "Adapted recipes for requirements such as vegan and gluten-free diets.", labelSide: "top" },
+      { name: "Nutrition comparison", detail: "Compared nutritional profiles for recipe substitutions.", labelSide: "bottom" }
     ],
-    layout: [[18, 40], [27, 23], [43, 15], [57, 27], [79, 22], [86, 44], [69, 48], [53, 72], [35, 84]],
-    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 3], [3, 7], [7, 8], [8, 6], [1, 6]]
+    strengths: [
+      { name: "Streamlit", detail: "Built the interactive application interface." },
+      { name: "End-to-end prototyping", detail: "Delivered a working prototype connecting the recipe experience, AI suggestions, and stored data." },
+      { name: "User-centered problem solving", detail: "Focused the project on adapting recipes to practical dietary needs." }
+    ],
+    layout: [[50, 17], [25, 43], [75, 43], [22, 75], [78, 75]],
+    connections: [[0, 1], [0, 2], [1, 3], [2, 4], [3, 4]]
   },
   {
     title: "LLVM-Compatible Compiler",
@@ -62,21 +64,22 @@ const constellations = [
     kind: "Programming languages / course project",
     timeframe: "AUG 2025 — DEC 2025",
     pattern: "compiler-pipeline",
+    projectNodeIndex: 2,
+    projectLabelSide: "right",
     description: "A full compiler pipeline, from source text through parsing and semantic checks to LLVM intermediate representation.",
     skills: [
-      { name: "Lexical analysis", detail: "Converted source text into a structured stream of tokens." },
-      { name: "Recursive-descent parsing", detail: "Implemented the parser for the source language." },
-      { name: "Abstract syntax trees", detail: "Represented parsed program structure for later compiler stages." },
-      { name: "Semantic analysis", detail: "Checked program meaning and language rules." },
-      { name: "Symbol tables", detail: "Designed structures for tracking names and semantic information." },
-      { name: "Intermediate representations", detail: "Designed representations between front-end and code generation." },
-      { name: "LLVM IR generation", detail: "Emitted LLVM-compatible intermediate code." },
-      { name: "Compiler correctness", detail: "Applied compiler correctness concepts across a full pipeline." },
-      { name: "Program analysis", detail: "Built understanding of how compilers inspect program structure." },
-      { name: "System decomposition", detail: "Structured the implementation as connected stages in a complete compiler pipeline." }
+      { name: "Lexical analysis", detail: "Converted source text into a stream of tokens." },
+      { name: "Recursive-descent parsing & ASTs", detail: "Parsed source code and represented its structure as an abstract syntax tree.", labelSide: "top" },
+      { name: "Semantic analysis & symbol tables", detail: "Checked language rules and tracked names across program scopes." },
+      { name: "Intermediate representations", detail: "Designed representations between parsing and code generation." },
+      { name: "LLVM IR generation", detail: "Generated LLVM-compatible intermediate code." }
     ],
-    layout: [[15, 25], [31, 33], [47, 41], [64, 49], [81, 58], [37, 18], [48, 12], [61, 20], [53, 80], [70, 80]],
-    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [2, 5], [5, 6], [6, 7], [7, 4], [3, 8], [8, 9]]
+    strengths: [
+      { name: "Compiler correctness", detail: "Applied correctness concepts across a complete compiler pipeline." },
+      { name: "System decomposition", detail: "Structured a complex compiler as connected stages with clear responsibilities." }
+    ],
+    layout: [[15, 42], [36, 40], [56, 42], [70, 54], [81, 68], [78, 83]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5]]
   },
   {
     title: "Sous-Chef",
@@ -84,23 +87,22 @@ const constellations = [
     kind: "Hackathon / full-stack product",
     timeframe: "HACKATHON",
     pattern: "kitchen-crossroads",
+    projectNodeIndex: 2,
     description: "A meal-planning assistant for recipe discovery, nutrition tracking, and dietary accommodations, designed from Figma mockups and deployed for the web.",
     skills: [
-      { name: "React.js", detail: "Built the interactive frontend for the meal-planning experience." },
-      { name: "Bootstrap", detail: "Created a responsive interface across screen sizes." },
+      { name: "React.js", detail: "Built the interactive frontend for meal planning." },
       { name: "Flask", detail: "Implemented the Python web-service layer." },
-      { name: "Spoonacular API", detail: "Integrated external recipe and nutrition data." },
-      { name: "Nutrition tracking", detail: "Presented nutritional information to support meal choices." },
-      { name: "Dietary filtering", detail: "Tailored recommendations to preferences and calorie needs." },
-      { name: "Figma to frontend", detail: "Translated design mockups into a functioning interface." },
-      { name: "AWS Lightsail", detail: "Deployed the application to a cloud-hosted server." },
-      { name: "Nginx", detail: "Configured web serving for the deployed application." },
-      { name: "Full-stack delivery", detail: "Connected interface, backend, live data, and deployment." },
-      { name: "Product design", detail: "Focused the experience on practical meal-planning workflows." },
-      { name: "Frontend leadership", detail: "Led frontend design and translated Figma mockups into a responsive experience." }
+      { name: "Spoonacular API", detail: "Integrated recipe and nutrition data.", labelSide: "bottom" },
+      { name: "AWS Lightsail & Nginx", detail: "Deployed and served the application from a cloud-hosted server." },
+      { name: "Bootstrap", detail: "Implemented responsive UI components." }
     ],
-    layout: [[13, 35], [21, 21], [36, 25], [41, 42], [30, 56], [16, 53], [59, 48], [57, 30], [72, 22], [87, 31], [84, 52], [72, 69]],
-    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [4, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 6], [2, 7], [10, 11], [11, 6]],
+    strengths: [
+      { name: "Frontend leadership", detail: "Led frontend design and turned Figma mockups into a responsive user experience." },
+      { name: "Full-stack delivery", detail: "Connected the frontend, Flask service, third-party data, and cloud deployment." },
+      { name: "Product thinking", detail: "Designed around meal planning, nutrition tracking, and dietary accommodations." }
+    ],
+    layout: [[18, 69], [28, 52], [45, 38], [63, 51], [79, 68], [72, 84]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [3, 5]],
     link: { href: "https://sous-chef.tech/", label: "Visit Sous-Chef" }
   },
   {
@@ -109,21 +111,24 @@ const constellations = [
     kind: "Operating systems / course project",
     timeframe: "MAR 2024 — MAY 2024",
     pattern: "allocator-arc",
+    projectNodeIndex: 2,
+    projectLabelSide: "left",
     description: "Four allocator designs implemented and compared in xv6, with controlled tests and measurements to examine correctness, performance, and fragmentation tradeoffs.",
     skills: [
-      { name: "xv6 internals", detail: "Worked within a teaching operating system and its memory model." },
-      { name: "Dynamic allocation", detail: "Implemented four approaches to malloc and free." },
-      { name: "Allocator design", detail: "Compared alternative strategies for finding and managing blocks." },
-      { name: "Fragmentation", detail: "Evaluated how allocation patterns affect memory fragmentation." },
-      { name: "Coalescing", detail: "Measured allocator behavior when combining free blocks." },
-      { name: "Automated testing", detail: "Ran controlled allocation/free cycles to validate behavior." },
-      { name: "Logging & instrumentation", detail: "Recorded allocator activity for repeatable analysis." },
-      { name: "Seven performance metrics", detail: "Compared designs across seven measures, including time overhead." },
-      { name: "Tradeoff analysis", detail: "Documented the performance and behavior tradeoffs of each design." },
-      { name: "Technical communication", detail: "Presented the implementation and measured findings in a report." }
+      { name: "malloc / free", detail: "Built four dynamic memory allocation implementations in xv6." },
+      { name: "Allocator strategies", detail: "Compared distinct block-finding and allocation approaches." },
+      { name: "Automated testing", detail: "Ran controlled allocation/free cycles to validate correctness." },
+      { name: "Logging & instrumentation", detail: "Recorded allocator behavior for repeatable measurements." },
+      { name: "Fragmentation & coalescing", detail: "Measured fragmentation and free-block coalescing behavior." }
     ],
-    layout: [[14, 42], [25, 34], [38, 26], [51, 32], [63, 42], [75, 51], [85, 63], [82, 40], [73, 25], [51, 75]],
-    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [5, 7], [7, 8], [8, 4], [4, 9]],
+    strengths: [
+      { name: "xv6", detail: "Implemented allocator designs within an operating-system codebase." },
+      { name: "Four allocator designs", detail: "Implemented and compared four malloc/free approaches." },
+      { name: "Seven performance metrics", detail: "Evaluated time overhead, block-finding behavior, coalescing, and other allocator measures." },
+      { name: "Tradeoff analysis", detail: "Documented and presented performance and fragmentation tradeoffs." }
+    ],
+    layout: [[14, 29], [32, 36], [50, 47], [67, 59], [82, 44], [79, 19]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [3, 5], [2, 4]],
     link: { href: "https://github.com/CSE3320-Spring-2024/malloc-Marzuque", label: "View source on GitHub" }
   },
   {
@@ -132,21 +137,22 @@ const constellations = [
     kind: "Machine learning / independent project",
     timeframe: "JAN 2026 — JUL 2026",
     pattern: "learning-spiral",
+    projectNodeIndex: 4,
     description: "An end-to-end neural-network trainer built to investigate learning dynamics and optimization failure modes with and without machine-learning libraries.",
     skills: [
-      { name: "Forward propagation", detail: "Implemented the flow of inputs through network layers." },
-      { name: "Backpropagation", detail: "Computed gradients to train network parameters." },
-      { name: "Gradient descent", detail: "Implemented optimization updates and investigated their behavior." },
-      { name: "Activation functions", detail: "Worked with nonlinear transformations within the network." },
-      { name: "Loss functions", detail: "Measured prediction error to guide model training." },
-      { name: "ML fundamentals", detail: "Applied mathematical foundations including gradients and stability." },
-      { name: "Controlled experiments", detail: "Validated learning behavior through focused experiments." },
-      { name: "Optimization diagnosis", detail: "Investigated training dynamics and optimization failure modes." },
-      { name: "Framework fluency", detail: "Compared implementation with and without machine-learning libraries." },
-      { name: "Generalization", detail: "Explored how training relates to performance beyond training examples." }
+      { name: "Forward & backpropagation", detail: "Implemented input propagation and gradient computation for training.", labelSide: "bottom" },
+      { name: "Gradient descent", detail: "Implemented parameter updates for model optimization." },
+      { name: "Activation functions", detail: "Implemented nonlinear transformations within the network.", labelSide: "left" },
+      { name: "Loss functions", detail: "Measured prediction error to guide training." },
+      { name: "ML libraries", detail: "Built and compared implementations with and without machine-learning libraries." }
     ],
-    layout: [[18, 64], [25, 46], [39, 34], [56, 29], [72, 34], [83, 48], [77, 66], [61, 75], [42, 72], [27, 82]],
-    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 0], [2, 8], [4, 7]]
+    strengths: [
+      { name: "Mathematical foundations", detail: "Applied gradients, optimization, numerical stability, and generalization concepts." },
+      { name: "Controlled experimentation", detail: "Validated learning behavior through focused experiments." },
+      { name: "Debugging optimization failures", detail: "Investigated training dynamics and failure modes." }
+    ],
+    layout: [[24, 17], [32, 43], [40, 78], [72, 17], [64, 43], [56, 78]],
+    connections: [[0, 1], [1, 2], [3, 4], [4, 5], [0, 3], [1, 4]]
   }
 ];
 
@@ -160,22 +166,11 @@ const videoRatios = new WeakMap();
 let activeVideo = null;
 let activeGameIndex = 0;
 let activeConstellationIndex = null;
+let portfolioEntered = false;
 
 function buildVideo(project) {
-  return `<div class="video-frame"><video class="project-video" data-src="${project.videoUrl}" muted playsinline loop controls preload="none" aria-label="Preview video for ${project.title}"></video><button class="video-play-prompt" type="button">Play muted preview</button><p class="video-error" hidden role="status">This file could not be decoded. Export it as an H.264 MP4 for browser playback.</p></div>`;
+  return `<div class="video-frame"><video class="project-video" data-src="${project.videoUrl}" muted playsinline loop preload="auto" aria-label="Preview video for ${project.title}"></video><button class="video-play-prompt" type="button">Play muted preview</button><p class="video-error" hidden role="status">This file could not be decoded. Export it as an H.264 MP4 for browser playback.</p></div>`;
 }
-
-const videoSourceObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    const video = entry.target;
-    if (!video.src) {
-      video.src = video.dataset.src;
-      video.load();
-    }
-    videoSourceObserver.unobserve(video);
-  });
-}, { rootMargin: "240px 0px", threshold: 0 });
 
 const videoPlaybackObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -194,13 +189,24 @@ const videoPlaybackObserver = new IntersectionObserver((entries) => {
 function observeProjectVideo(video) {
   if (!video.dataset.handlersAttached) {
     video.dataset.handlersAttached = "true";
+    const frame = video.closest(".video-frame");
+    video.addEventListener("loadeddata", () => {
+      frame.classList.remove("is-buffering");
+      frame.classList.add("is-frame-ready");
+      video.controls = true;
+    });
+    video.addEventListener("waiting", () => frame.classList.add("is-buffering"));
+    video.addEventListener("playing", () => frame.classList.remove("is-buffering"));
     video.addEventListener("error", () => {
-      const frame = video.closest(".video-frame");
       frame.classList.add("has-error");
       frame.querySelector(".video-error").hidden = false;
     });
   }
-  if (!video.src) videoSourceObserver.observe(video);
+  if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+    video.closest(".video-frame").classList.add("is-frame-ready");
+    video.controls = true;
+  }
+  loadProjectVideo(video);
   videoPlaybackObserver.observe(video);
 }
 
@@ -208,7 +214,6 @@ function loadProjectVideo(video) {
   if (video.src || !video.dataset.src) return;
   video.src = video.dataset.src;
   video.load();
-  videoSourceObserver.unobserve(video);
 }
 
 function playProjectVideo(video) {
@@ -234,6 +239,8 @@ function viewportRatio(element) {
 
 function enterPortfolio() {
   window.clearTimeout(bootTimer);
+  if (portfolioEntered) return;
+  portfolioEntered = true;
   if (reducedMotion) {
     bootScreen.hidden = true;
     portfolio.hidden = false;
@@ -270,14 +277,28 @@ function renderProjects() {
 
 function constellationPoints(index, scale = 1) {
   const project = constellations[index];
-  return constellations[index].skills.map((skill, skillIndex) => {
-    const [x, y] = project.layout[skillIndex];
+  return project.layout.map(([layoutX, layoutY], nodeIndex) => {
+    const isProject = nodeIndex === project.projectNodeIndex;
+    const skillIndex = nodeIndex < project.projectNodeIndex ? nodeIndex : nodeIndex - 1;
+    const [x, y] = [layoutX, layoutY];
     return {
       x: 50 + (x - 50) * scale,
       y: 50 + (y - 50) * scale,
-      skill
+      isProject,
+      skill: isProject ? null : project.skills[skillIndex]
     };
   });
+}
+
+function constellationLabelSide({ x, y }, isProject = false) {
+  if (isProject) return y < 50 ? "top" : "bottom";
+  if (x <= 18) return "right";
+  if (x >= 82) return "left";
+  if (x <= 32) return "right";
+  if (x >= 68) return "left";
+  if (y < 30) return "bottom";
+  if (y > 70) return "top";
+  return x < 50 ? "right" : "left";
 }
 
 function starPath(x, y, size) {
@@ -295,18 +316,19 @@ function renderConstellationOverview() {
     <div class="constellation-overview">
       ${constellations.map((project, index) => {
         const points = constellationPoints(index, 0.78);
-        const spokes = points.map(({ x, y }) => `<line x1="50" y1="50" x2="${x}" y2="${y}" />`).join("");
         const connections = project.connections.map(([from, to]) => `<line x1="${points[from].x}" y1="${points[from].y}" x2="${points[to].x}" y2="${points[to].y}" />`).join("");
-        const stars = points.map(({ x, y }, skillIndex) => {
+        const stars = points.map(({ x, y, isProject }, skillIndex) => {
+          if (isProject) return "";
           const starSize = [2.7, 1.7, 2.2, 1.5][skillIndex % 4];
           return `<path class="map-skill-star map-skill-star--${skillIndex + 1}" d="${starPath(x, y, starSize)}" />`;
         }).join("");
+        const projectPoint = points[project.projectNodeIndex];
         return `<button class="constellation-card" type="button" data-constellation-index="${index}" aria-label="Explore ${project.title}: ${project.subtitle}">
           <svg class="constellation-sketch constellation-sketch--${project.pattern}" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-            <g class="constellation-lines">${spokes}${connections}</g>
+            <g class="constellation-lines">${connections}</g>
             ${stars}
-            <circle class="map-project-star-halo" cx="50" cy="50" r="8" />
-            <circle class="map-project-star" cx="50" cy="50" r="3.6" />
+            <circle class="map-project-star-halo" cx="${projectPoint.x}" cy="${projectPoint.y}" r="8" />
+            <circle class="map-project-star" cx="${projectPoint.x}" cy="${projectPoint.y}" r="3.6" />
           </svg>
           <span class="constellation-card-copy"><span class="constellation-card-kind">${project.kind}</span><span class="constellation-card-title">${project.title}</span><span class="constellation-card-subtitle">${project.subtitle}</span><span class="constellation-card-action">EXPLORE CONSTELLATION <span aria-hidden="true">↗</span></span></span>
         </button>`;
@@ -317,15 +339,30 @@ function renderConstellationOverview() {
 function renderConstellationDetail(index) {
   const project = constellations[index];
   const points = constellationPoints(index);
-  const spokes = points.map(({ x, y }) => `<line x1="50" y1="50" x2="${x}" y2="${y}" />`).join("");
   const connections = project.connections.map(([from, to]) => `<line x1="${points[from].x}" y1="${points[from].y}" x2="${points[to].x}" y2="${points[to].y}" />`).join("");
-  const stars = points.map(({ x, y, skill }, skillIndex) => `<span class="constellation-skill-star" style="--star-x:${x}%;--star-y:${y}%" title="${skill.name}"><i aria-hidden="true"></i><span>${String(skillIndex + 1).padStart(2, "0")}</span></span>`).join("");
+  const stars = points.map(({ x, y, isProject, skill }) => {
+    const labelSide = isProject
+      ? project.projectLabelSide || constellationLabelSide({ x, y }, true)
+      : skill.labelSide || constellationLabelSide({ x, y });
+    if (isProject) return `<span class="detail-project-star" data-label-side="${labelSide}" style="--star-x:${x}%;--star-y:${y}%" aria-hidden="true"><i></i><span>${project.title}</span></span>`;
+    return `<span class="constellation-skill-star" data-label-side="${labelSide}" style="--star-x:${x}%;--star-y:${y}%" title="${skill.name}"><i aria-hidden="true"></i><span>${skill.name}</span></span>`;
+  }).join("");
   const link = project.link
     ? `<a class="constellation-project-link" href="${project.link.href}" target="_blank" rel="noreferrer">${project.link.label}<span aria-hidden="true"> ↗</span></a>`
     : "";
+  const contributions = [...project.skills, ...project.strengths];
+  const previousIndex = (index + constellations.length - 1) % constellations.length;
+  const nextIndex = (index + 1) % constellations.length;
 
   constellationMap.innerHTML = `
-    <div class="star-map-toolbar"><button class="constellation-back" type="button" data-constellation-back><span aria-hidden="true">←</span> ALL CONSTELLATIONS</button><span>${String(index + 1).padStart(2, "0")} / ${String(constellations.length).padStart(2, "0")}</span></div>
+    <div class="star-map-toolbar">
+      <button class="constellation-back" type="button" data-constellation-back><span aria-hidden="true">←</span> ALL CONSTELLATIONS</button>
+      <div class="constellation-stepper" aria-label="Browse project constellations">
+        <button class="constellation-step" type="button" data-constellation-step="${previousIndex}" aria-label="Previous constellation: ${constellations[previousIndex].title}">←</button>
+        <span aria-live="polite">${String(index + 1).padStart(2, "0")} / ${String(constellations.length).padStart(2, "0")}</span>
+        <button class="constellation-step" type="button" data-constellation-step="${nextIndex}" aria-label="Next constellation: ${constellations[nextIndex].title}">→</button>
+      </div>
+    </div>
     <article class="constellation-detail">
       <div class="constellation-detail-copy">
         <p class="constellation-detail-kind">${project.kind} <span>/</span> ${project.timeframe}</p>
@@ -334,15 +371,13 @@ function renderConstellationDetail(index) {
         <p class="constellation-detail-description">${project.description}</p>
         ${link}
       </div>
-      <div class="constellation-detail-art constellation-detail-art--${project.pattern}" role="img" aria-label="${project.title} as a bright central star connected to ${project.skills.map((skill) => skill.name).join(", ")}">
-        <svg class="detail-constellation-lines" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><g>${spokes}${connections}</g></svg>
+      <div class="constellation-detail-art constellation-detail-art--${project.pattern}" role="img" aria-label="${project.title} as the brightest star, connected to ${project.skills.map((skill) => skill.name).join(", ")}">
+        <svg class="detail-constellation-lines" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><g>${connections}</g></svg>
         <span class="detail-orbit detail-orbit--outer" aria-hidden="true"></span><span class="detail-orbit detail-orbit--inner" aria-hidden="true"></span>
         ${stars}
-        <span class="detail-project-star" aria-hidden="true"><i></i></span>
-        <span class="detail-project-name">${project.title}</span>
       </div>
       <ul class="constellation-skill-notes" aria-label="Skills and contributions">
-        ${project.skills.map((skill, skillIndex) => `<li><span class="skill-note-index">${String(skillIndex + 1).padStart(2, "0")}</span><span><strong>${skill.name}</strong><span>${skill.detail}</span></span></li>`).join("")}
+        ${contributions.map((skill, skillIndex) => `<li><span class="skill-note-index">${String(skillIndex + 1).padStart(2, "0")}</span><span><strong>${skill.name}</strong><span>${skill.detail}</span></span></li>`).join("")}
       </ul>
     </article>`;
 }
@@ -379,6 +414,15 @@ function renderGames(focusIndex = null) {
 
 document.getElementById("skipIntro").addEventListener("click", enterPortfolio);
 constellationMap.addEventListener("click", (event) => {
+  const stepButton = event.target.closest("[data-constellation-step]");
+  if (stepButton) {
+    const index = Number(stepButton.dataset.constellationStep);
+    if (!Number.isInteger(index) || !constellations[index]) return;
+    renderConstellations(index);
+    constellationMap.querySelector(`[data-constellation-step="${index}"]`)?.focus({ preventScroll: true });
+    return;
+  }
+
   if (event.target.closest("[data-constellation-back]")) {
     const previousIndex = activeConstellationIndex;
     renderConstellations();
@@ -412,7 +456,6 @@ projectList.addEventListener("click", (event) => {
     else {
       video.pause();
       videoPlaybackObserver.unobserve(video);
-      if (!video.src) videoSourceObserver.unobserve(video);
       videoRatios.set(video, 0);
     }
     return;
@@ -500,4 +543,19 @@ document.addEventListener("visibilitychange", () => {
 renderProjects();
 renderConstellations();
 renderGames();
-bootTimer = window.setTimeout(enterPortfolio, reducedMotion ? 0 : 1950);
+const startupVideosReady = [...projectList.querySelectorAll(".project-video")].map((video) => new Promise((resolve) => {
+  if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA || video.error) {
+    resolve();
+    return;
+  }
+  video.addEventListener("loadeddata", resolve, { once: true });
+  video.addEventListener("error", resolve, { once: true });
+}));
+const introFinished = new Promise((resolve) => {
+  bootTimer = window.setTimeout(resolve, reducedMotion ? 0 : 1950);
+});
+const videoStartupDeadline = new Promise((resolve) => window.setTimeout(resolve, 1200));
+const startupMedia = reducedMotion
+  ? Promise.resolve()
+  : Promise.race([Promise.all(startupVideosReady), videoStartupDeadline]);
+Promise.all([introFinished, startupMedia]).then(enterPortfolio);
