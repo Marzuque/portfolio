@@ -34,17 +34,135 @@ const games = [
   { title: "Roller Madness", gif: "assets/Cut Roller Madness Smaller (online-video-cutter.com).gif" }
 ];
 
+const constellations = [
+  {
+    title: "Shelf Smart",
+    subtitle: "AI-powered smart recipe modifier",
+    kind: "Hackathon / applied AI",
+    timeframe: "HACKATHON",
+    pattern: "recipe-orbit",
+    description: "An interactive recipe tool that adapts ingredients to dietary constraints and uses language models to suggest substitutions with nutritional comparisons.",
+    skills: [
+      { name: "LLM integration", detail: "Applied language-model components to generate context-aware ingredient substitutions." },
+      { name: "Dietary constraints", detail: "Adapted recipes for requirements such as vegan and gluten-free diets." },
+      { name: "Ingredient substitution", detail: "Mapped recipe ingredients to suitable alternatives." },
+      { name: "Nutrition comparison", detail: "Presented nutritional comparisons to support personalized decisions." },
+      { name: "Streamlit", detail: "Built an interactive interface for the end-to-end prototype." },
+      { name: "MongoDB Atlas", detail: "Stored recipes in a cloud-hosted document database." },
+      { name: "Product prototyping", detail: "Delivered a usable prototype connecting the core experience." },
+      { name: "Personalization", detail: "Tailored recipe suggestions to individual dietary needs." },
+      { name: "Usability-first design", detail: "Kept dietary preferences and an easy-to-use experience central to the prototype." }
+    ],
+    layout: [[18, 40], [27, 23], [43, 15], [57, 27], [79, 22], [86, 44], [69, 48], [53, 72], [35, 84]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 3], [3, 7], [7, 8], [8, 6], [1, 6]]
+  },
+  {
+    title: "LLVM-Compatible Compiler",
+    subtitle: "Graduate compilers",
+    kind: "Programming languages / course project",
+    timeframe: "AUG 2025 — DEC 2025",
+    pattern: "compiler-pipeline",
+    description: "A full compiler pipeline, from source text through parsing and semantic checks to LLVM intermediate representation.",
+    skills: [
+      { name: "Lexical analysis", detail: "Converted source text into a structured stream of tokens." },
+      { name: "Recursive-descent parsing", detail: "Implemented the parser for the source language." },
+      { name: "Abstract syntax trees", detail: "Represented parsed program structure for later compiler stages." },
+      { name: "Semantic analysis", detail: "Checked program meaning and language rules." },
+      { name: "Symbol tables", detail: "Designed structures for tracking names and semantic information." },
+      { name: "Intermediate representations", detail: "Designed representations between front-end and code generation." },
+      { name: "LLVM IR generation", detail: "Emitted LLVM-compatible intermediate code." },
+      { name: "Compiler correctness", detail: "Applied compiler correctness concepts across a full pipeline." },
+      { name: "Program analysis", detail: "Built understanding of how compilers inspect program structure." },
+      { name: "System decomposition", detail: "Structured the implementation as connected stages in a complete compiler pipeline." }
+    ],
+    layout: [[15, 25], [31, 33], [47, 41], [64, 49], [81, 58], [37, 18], [48, 12], [61, 20], [53, 80], [70, 80]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [2, 5], [5, 6], [6, 7], [7, 4], [3, 8], [8, 9]]
+  },
+  {
+    title: "Sous-Chef",
+    subtitle: "Intelligent kitchen assistant",
+    kind: "Hackathon / full-stack product",
+    timeframe: "HACKATHON",
+    pattern: "kitchen-crossroads",
+    description: "A meal-planning assistant for recipe discovery, nutrition tracking, and dietary accommodations, designed from Figma mockups and deployed for the web.",
+    skills: [
+      { name: "React.js", detail: "Built the interactive frontend for the meal-planning experience." },
+      { name: "Bootstrap", detail: "Created a responsive interface across screen sizes." },
+      { name: "Flask", detail: "Implemented the Python web-service layer." },
+      { name: "Spoonacular API", detail: "Integrated external recipe and nutrition data." },
+      { name: "Nutrition tracking", detail: "Presented nutritional information to support meal choices." },
+      { name: "Dietary filtering", detail: "Tailored recommendations to preferences and calorie needs." },
+      { name: "Figma to frontend", detail: "Translated design mockups into a functioning interface." },
+      { name: "AWS Lightsail", detail: "Deployed the application to a cloud-hosted server." },
+      { name: "Nginx", detail: "Configured web serving for the deployed application." },
+      { name: "Full-stack delivery", detail: "Connected interface, backend, live data, and deployment." },
+      { name: "Product design", detail: "Focused the experience on practical meal-planning workflows." },
+      { name: "Frontend leadership", detail: "Led frontend design and translated Figma mockups into a responsive experience." }
+    ],
+    layout: [[13, 35], [21, 21], [36, 25], [41, 42], [30, 56], [16, 53], [59, 48], [57, 30], [72, 22], [87, 31], [84, 52], [72, 69]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [4, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 6], [2, 7], [10, 11], [11, 6]],
+    link: { href: "https://sous-chef.tech/", label: "Visit Sous-Chef" }
+  },
+  {
+    title: "Malloc in xv6",
+    subtitle: "Memory allocation algorithms",
+    kind: "Operating systems / course project",
+    timeframe: "MAR 2024 — MAY 2024",
+    pattern: "allocator-arc",
+    description: "Four allocator designs implemented and compared in xv6, with controlled tests and measurements to examine correctness, performance, and fragmentation tradeoffs.",
+    skills: [
+      { name: "xv6 internals", detail: "Worked within a teaching operating system and its memory model." },
+      { name: "Dynamic allocation", detail: "Implemented four approaches to malloc and free." },
+      { name: "Allocator design", detail: "Compared alternative strategies for finding and managing blocks." },
+      { name: "Fragmentation", detail: "Evaluated how allocation patterns affect memory fragmentation." },
+      { name: "Coalescing", detail: "Measured allocator behavior when combining free blocks." },
+      { name: "Automated testing", detail: "Ran controlled allocation/free cycles to validate behavior." },
+      { name: "Logging & instrumentation", detail: "Recorded allocator activity for repeatable analysis." },
+      { name: "Seven performance metrics", detail: "Compared designs across seven measures, including time overhead." },
+      { name: "Tradeoff analysis", detail: "Documented the performance and behavior tradeoffs of each design." },
+      { name: "Technical communication", detail: "Presented the implementation and measured findings in a report." }
+    ],
+    layout: [[14, 42], [25, 34], [38, 26], [51, 32], [63, 42], [75, 51], [85, 63], [82, 40], [73, 25], [51, 75]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [5, 7], [7, 8], [8, 4], [4, 9]],
+    link: { href: "https://github.com/CSE3320-Spring-2024/malloc-Marzuque", label: "View source on GitHub" }
+  },
+  {
+    title: "Autograd-Free Neural Network",
+    subtitle: "Neural network trainer",
+    kind: "Machine learning / independent project",
+    timeframe: "JAN 2026 — JUL 2026",
+    pattern: "learning-spiral",
+    description: "An end-to-end neural-network trainer built to investigate learning dynamics and optimization failure modes with and without machine-learning libraries.",
+    skills: [
+      { name: "Forward propagation", detail: "Implemented the flow of inputs through network layers." },
+      { name: "Backpropagation", detail: "Computed gradients to train network parameters." },
+      { name: "Gradient descent", detail: "Implemented optimization updates and investigated their behavior." },
+      { name: "Activation functions", detail: "Worked with nonlinear transformations within the network." },
+      { name: "Loss functions", detail: "Measured prediction error to guide model training." },
+      { name: "ML fundamentals", detail: "Applied mathematical foundations including gradients and stability." },
+      { name: "Controlled experiments", detail: "Validated learning behavior through focused experiments." },
+      { name: "Optimization diagnosis", detail: "Investigated training dynamics and optimization failure modes." },
+      { name: "Framework fluency", detail: "Compared implementation with and without machine-learning libraries." },
+      { name: "Generalization", detail: "Explored how training relates to performance beyond training examples." }
+    ],
+    layout: [[18, 64], [25, 46], [39, 34], [56, 29], [72, 34], [83, 48], [77, 66], [61, 75], [42, 72], [27, 82]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 0], [2, 8], [4, 7]]
+  }
+];
+
 const bootScreen = document.getElementById("bootScreen");
 const portfolio = document.getElementById("portfolio");
 const projectList = document.getElementById("projectList");
+const constellationMap = document.getElementById("constellationMap");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let bootTimer;
 const videoRatios = new WeakMap();
 let activeVideo = null;
 let activeGameIndex = 0;
+let activeConstellationIndex = null;
 
 function buildVideo(project) {
-  return `<div class="video-frame"><video class="project-video" data-src="${project.videoUrl}" muted playsinline loop controls preload="none" aria-label="Preview video for ${project.title}"></video><button class="video-play-prompt" type="button">Play muted preview</button><p class="video-error" hidden role="status">This file could not be decoded. Export it as an H.264 MP4 for browser playback.</p><span class="video-caption">MUTED PREVIEW / AUTO-PAUSES OFF SCREEN</span></div>`;
+  return `<div class="video-frame"><video class="project-video" data-src="${project.videoUrl}" muted playsinline loop controls preload="none" aria-label="Preview video for ${project.title}"></video><button class="video-play-prompt" type="button">Play muted preview</button><p class="video-error" hidden role="status">This file could not be decoded. Export it as an H.264 MP4 for browser playback.</p></div>`;
 }
 
 const videoSourceObserver = new IntersectionObserver((entries) => {
@@ -150,6 +268,91 @@ function renderProjects() {
   projectList.querySelectorAll(".project-video").forEach(observeProjectVideo);
 }
 
+function constellationPoints(index, scale = 1) {
+  const project = constellations[index];
+  return constellations[index].skills.map((skill, skillIndex) => {
+    const [x, y] = project.layout[skillIndex];
+    return {
+      x: 50 + (x - 50) * scale,
+      y: 50 + (y - 50) * scale,
+      skill
+    };
+  });
+}
+
+function starPath(x, y, size) {
+  return Array.from({ length: 10 }, (_, pointIndex) => {
+    const angle = (Math.PI * pointIndex) / 5 - Math.PI / 2;
+    const radius = pointIndex % 2 === 0 ? size : size * 0.42;
+    const command = pointIndex === 0 ? "M" : "L";
+    return `${command}${(x + Math.cos(angle) * radius).toFixed(2)},${(y + Math.sin(angle) * radius).toFixed(2)}`;
+  }).join(" ") + " Z";
+}
+
+function renderConstellationOverview() {
+  constellationMap.innerHTML = `
+    <div class="star-map-toolbar"><span>${String(constellations.length).padStart(2, "0")} / PROJECT CONSTELLATIONS</span><span>SELECT A STAR TO EXPLORE</span></div>
+    <div class="constellation-overview">
+      ${constellations.map((project, index) => {
+        const points = constellationPoints(index, 0.78);
+        const spokes = points.map(({ x, y }) => `<line x1="50" y1="50" x2="${x}" y2="${y}" />`).join("");
+        const connections = project.connections.map(([from, to]) => `<line x1="${points[from].x}" y1="${points[from].y}" x2="${points[to].x}" y2="${points[to].y}" />`).join("");
+        const stars = points.map(({ x, y }, skillIndex) => {
+          const starSize = [2.7, 1.7, 2.2, 1.5][skillIndex % 4];
+          return `<path class="map-skill-star map-skill-star--${skillIndex + 1}" d="${starPath(x, y, starSize)}" />`;
+        }).join("");
+        return `<button class="constellation-card" type="button" data-constellation-index="${index}" aria-label="Explore ${project.title}: ${project.subtitle}">
+          <svg class="constellation-sketch constellation-sketch--${project.pattern}" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+            <g class="constellation-lines">${spokes}${connections}</g>
+            ${stars}
+            <circle class="map-project-star-halo" cx="50" cy="50" r="8" />
+            <circle class="map-project-star" cx="50" cy="50" r="3.6" />
+          </svg>
+          <span class="constellation-card-copy"><span class="constellation-card-kind">${project.kind}</span><span class="constellation-card-title">${project.title}</span><span class="constellation-card-subtitle">${project.subtitle}</span><span class="constellation-card-action">EXPLORE CONSTELLATION <span aria-hidden="true">↗</span></span></span>
+        </button>`;
+      }).join("")}
+    </div>`;
+}
+
+function renderConstellationDetail(index) {
+  const project = constellations[index];
+  const points = constellationPoints(index);
+  const spokes = points.map(({ x, y }) => `<line x1="50" y1="50" x2="${x}" y2="${y}" />`).join("");
+  const connections = project.connections.map(([from, to]) => `<line x1="${points[from].x}" y1="${points[from].y}" x2="${points[to].x}" y2="${points[to].y}" />`).join("");
+  const stars = points.map(({ x, y, skill }, skillIndex) => `<span class="constellation-skill-star" style="--star-x:${x}%;--star-y:${y}%" title="${skill.name}"><i aria-hidden="true"></i><span>${String(skillIndex + 1).padStart(2, "0")}</span></span>`).join("");
+  const link = project.link
+    ? `<a class="constellation-project-link" href="${project.link.href}" target="_blank" rel="noreferrer">${project.link.label}<span aria-hidden="true"> ↗</span></a>`
+    : "";
+
+  constellationMap.innerHTML = `
+    <div class="star-map-toolbar"><button class="constellation-back" type="button" data-constellation-back><span aria-hidden="true">←</span> ALL CONSTELLATIONS</button><span>${String(index + 1).padStart(2, "0")} / ${String(constellations.length).padStart(2, "0")}</span></div>
+    <article class="constellation-detail">
+      <div class="constellation-detail-copy">
+        <p class="constellation-detail-kind">${project.kind} <span>/</span> ${project.timeframe}</p>
+        <h3>${project.title}</h3>
+        <p class="constellation-detail-subtitle">${project.subtitle}</p>
+        <p class="constellation-detail-description">${project.description}</p>
+        ${link}
+      </div>
+      <div class="constellation-detail-art constellation-detail-art--${project.pattern}" role="img" aria-label="${project.title} as a bright central star connected to ${project.skills.map((skill) => skill.name).join(", ")}">
+        <svg class="detail-constellation-lines" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><g>${spokes}${connections}</g></svg>
+        <span class="detail-orbit detail-orbit--outer" aria-hidden="true"></span><span class="detail-orbit detail-orbit--inner" aria-hidden="true"></span>
+        ${stars}
+        <span class="detail-project-star" aria-hidden="true"><i></i></span>
+        <span class="detail-project-name">${project.title}</span>
+      </div>
+      <ul class="constellation-skill-notes" aria-label="Skills and contributions">
+        ${project.skills.map((skill, skillIndex) => `<li><span class="skill-note-index">${String(skillIndex + 1).padStart(2, "0")}</span><span><strong>${skill.name}</strong><span>${skill.detail}</span></span></li>`).join("")}
+      </ul>
+    </article>`;
+}
+
+function renderConstellations(focusIndex = null) {
+  activeConstellationIndex = focusIndex;
+  if (focusIndex === null) renderConstellationOverview();
+  else renderConstellationDetail(focusIndex);
+}
+
 function renderGames(focusIndex = null) {
   const previousIndex = (activeGameIndex + games.length - 1) % games.length;
   const nextIndex = (activeGameIndex + 1) % games.length;
@@ -175,6 +378,22 @@ function renderGames(focusIndex = null) {
 }
 
 document.getElementById("skipIntro").addEventListener("click", enterPortfolio);
+constellationMap.addEventListener("click", (event) => {
+  if (event.target.closest("[data-constellation-back]")) {
+    const previousIndex = activeConstellationIndex;
+    renderConstellations();
+    constellationMap.querySelector(`[data-constellation-index="${previousIndex}"]`)?.focus({ preventScroll: true });
+    return;
+  }
+
+  const card = event.target.closest("[data-constellation-index]");
+  if (!card) return;
+  const index = Number(card.dataset.constellationIndex);
+  if (!Number.isInteger(index) || !constellations[index]) return;
+  renderConstellations(index);
+  constellationMap.querySelector("[data-constellation-back]")?.focus({ preventScroll: true });
+});
+
 projectList.addEventListener("click", (event) => {
   const mediaTab = event.target.closest("[data-media-tab]");
   if (mediaTab) {
@@ -279,5 +498,6 @@ document.addEventListener("visibilitychange", () => {
 });
 
 renderProjects();
+renderConstellations();
 renderGames();
 bootTimer = window.setTimeout(enterPortfolio, reducedMotion ? 0 : 1950);
