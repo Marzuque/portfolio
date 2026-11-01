@@ -194,6 +194,8 @@ const heroHeadingLead = document.getElementById("heroHeadingLead");
 const heroHeadingHighlight = document.getElementById("heroHeadingHighlight");
 const heroLede = document.getElementById("heroLede");
 const heroPrimaryAction = document.getElementById("heroPrimaryAction");
+const heroArt = document.querySelector(".hero-art");
+const heroArtCore = document.querySelector(".art-core");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let bootTimer;
 let modeTransitionTimer;
@@ -497,8 +499,21 @@ function setPortfolioMode(mode) {
 
 portfolio.addEventListener("click", (event) => {
   const toggle = event.target.closest("[data-mode-toggle]");
-  if (!toggle) return;
-  setPortfolioMode(portfolio.dataset.mode === "professional" ? "personal" : "professional");
+  if (!toggle || heroArt.classList.contains("is-flipping") || portfolio.classList.contains("is-transitioning")) return;
+  const nextMode = portfolio.dataset.mode === "professional" ? "personal" : "professional";
+  if (reducedMotion) {
+    setPortfolioMode(nextMode);
+    return;
+  }
+
+  const finishFlip = (animationEvent) => {
+    if (animationEvent.target !== heroArtCore || animationEvent.animationName !== "hero-portrait-flip") return;
+    heroArtCore.removeEventListener("animationend", finishFlip);
+    heroArt.classList.remove("is-flipping", "is-flipping-to-personal", "is-flipping-to-professional");
+    setPortfolioMode(nextMode);
+  };
+  heroArtCore.addEventListener("animationend", finishFlip);
+  heroArt.classList.add("is-flipping", `is-flipping-to-${nextMode}`);
 });
 
 document.getElementById("skipIntro").addEventListener("click", enterPortfolio);

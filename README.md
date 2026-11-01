@@ -1,6 +1,6 @@
 # Marzuque Fariz Portfolio
 
-This is a static, PS2-inspired portfolio with a short boot reveal, project videos, an NYC crash-map visualization, an interactive project constellation map, and a selectable GIF showcase for three small games. The unframed hero orbit fades into the page background, pauses and expands on hover/focus, and shows the active side in a Professional ↔ Personal toggle indicator. Activating it switches between the professional portfolio and a warm-toned personal view with placeholder content.
+This is a static, PS2-inspired portfolio with a short boot reveal, project videos, an NYC crash-map visualization, an interactive project constellation map, and a selectable GIF showcase for three small games. The unframed hero orbit fades into the page background, pauses and expands on hover/focus, and shows the active side in a Professional ↔ Personal toggle indicator. The enlarged center frame fits `assets/Linkedin1.jpeg` in Professional mode and `assets/Linkedin Personal.jpg` in Personal mode without cropping; activating either mode control flips the portrait once before switching views.
 
 ## Files
 - `index.html` — boot screen and professional page structure
