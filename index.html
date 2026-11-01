@@ -20,30 +20,37 @@
     </div>
 
     <main>
-      <div class="portfolio" id="portfolio" hidden>
+      <div class="portfolio" id="portfolio" data-mode="professional" hidden>
         <header class="site-header">
           <a class="wordmark" href="#top" aria-label="Marzuque Fariz, back to top"><span class="wordmark-symbol">MF</span><span>MARZUQUE FARIZ</span></a>
           <nav class="main-nav" aria-label="Portfolio navigation">
-            <a href="#experience">Background</a><a href="#work">Projects</a><a href="#constellations">Map</a><a href="#games">Games</a><a href="#contact">Contact</a>
+            <a href="#experience" data-professional-label="Background" data-personal-label="About" data-professional-target="#experience" data-personal-target="#personal-about">Background</a>
+            <a href="#work" data-professional-label="Projects" data-personal-label="Projects" data-professional-target="#work" data-personal-target="#personal-projects">Projects</a>
+            <a href="#constellations" data-professional-label="Map" data-personal-label="Interests" data-professional-target="#constellations" data-personal-target="#personal-interests">Map</a>
+            <a href="#games" data-professional-label="Games" data-personal-label="Play" data-professional-target="#games" data-personal-target="#personal-play">Games</a>
+            <a href="#contact" data-professional-label="Contact" data-personal-label="Contact" data-professional-target="#contact" data-personal-target="#personal-contact">Contact</a>
           </nav>
+          <button class="mode-toggle" id="portfolioModeToggle" type="button" data-mode-toggle aria-pressed="false">Explore personal mode</button>
         </header>
 
         <section class="hero" id="top">
           <div class="hero-copy">
-            <p class="eyebrow"><span class="status-light"></span> AI & AUTOMATION ENGINEER <span class="eyebrow-divider"></span></p>
-            <h1>AI tools for<br /><span>real workflows.</span></h1>
-            <p class="hero-lede">I’m Marzuque, a recent computer science graduate working across machine learning, LLMs, and visual software. My toolkit includes retrieval-augmented generation (RAG) and LangChain; my projects focus on putting these ideas to practical use.</p>
-            <div class="hero-actions"><a class="text-link text-link--bright" href="#work">View selected work <span aria-hidden="true">↓</span></a><a class="text-link" href="mailto:farizmarzuque@gmail.com">Email me <span aria-hidden="true">↗</span></a></div>
+            <p class="eyebrow"><span class="status-light"></span><span id="heroEyebrow">AI & AUTOMATION ENGINEER</span></p>
+            <h1><span id="heroHeadingLead">AI tools for</span><br /><span id="heroHeadingHighlight">real workflows.</span></h1>
+            <p class="hero-lede" id="heroLede">I’m Marzuque, a recent computer science graduate working across machine learning, LLMs, and visual software. My toolkit includes retrieval-augmented generation (RAG) and LangChain; my projects focus on putting these ideas to practical use.</p>
+            <div class="hero-actions"><a class="text-link text-link--bright" id="heroPrimaryAction" href="#work">View selected work <span aria-hidden="true">↓</span></a><a class="text-link" href="mailto:farizmarzuque@gmail.com">Email me <span aria-hidden="true">↗</span></a></div>
           </div>
-          <div class="hero-art" aria-label="Abstract blue-lit technical installation">
-            <div class="art-grid" aria-hidden="true"></div>
-            <div class="art-ring art-ring--outer" aria-hidden="true"></div>
-            <div class="art-ring art-ring--inner" aria-hidden="true"></div>
-            <div class="art-core" aria-hidden="true"><span>MF</span></div>
+          <button class="hero-art" type="button" data-mode-toggle aria-label="Switch from Professional to Personal mode">
+            <span class="art-grid" aria-hidden="true"></span>
+            <span class="art-ring art-ring--outer" aria-hidden="true"></span>
+            <span class="art-ring art-ring--inner" aria-hidden="true"></span>
+            <span class="art-core" aria-hidden="true"><span>MF</span></span>
             <span class="art-crosshair art-crosshair--one" aria-hidden="true">+</span><span class="art-crosshair art-crosshair--two" aria-hidden="true">+</span>
-          </div>
+            <span class="hero-mode-switch" aria-hidden="true"><span class="hero-mode-professional">PROFESSIONAL</span><span class="hero-mode-divider">↔</span><span class="hero-mode-personal">PERSONAL</span></span>
+          </button>
         </section>
 
+        <div class="professional-view" id="professionalContent">
         <section class="section experience-section" id="experience">
           <div class="section-heading section-heading--compact"><div><p class="eyebrow">BACKGROUND</p><h2>Work and<br /><span>education.</span></h2></div></div>
           <div class="experience-list">
@@ -71,7 +78,6 @@
         </section>
 
         <footer class="contact-section" id="contact">
-          <div class="contact-topline"><p class="eyebrow">CONTACT</p></div>
           <h2>Get in <span>touch.</span></h2>
           <div class="contact-actions">
             <a class="contact-link" href="mailto:farizmarzuque@gmail.com">Email <span aria-hidden="true">↗</span></a>
@@ -81,6 +87,41 @@
             </div>
           </div>
         </footer>
+        </div>
+
+        <div class="personal-view" id="personalContent" hidden>
+          <section class="section personal-about-section" id="personal-about">
+            <div class="section-heading"><div><p class="eyebrow">ABOUT</p><h2>The person<br /><span>behind the work.</span></h2></div></div>
+            <article class="personal-placeholder"><span>01 / PERSONAL BACKGROUND</span><h3>Coming soon</h3><p>Personal background and interests will be added here.</p></article>
+          </section>
+
+          <section class="section personal-projects-section" id="personal-projects">
+            <div class="section-heading"><div><p class="eyebrow">PERSONAL PROJECTS</p><h2>Things made<br /><span>for fun.</span></h2></div></div>
+            <article class="personal-placeholder"><span>02 / PROJECTS</span><h3>Coming soon</h3><p>Personal projects and experiments will be added here.</p></article>
+          </section>
+
+          <section class="section personal-interests-section" id="personal-interests">
+            <div class="section-heading"><div><p class="eyebrow">INTERESTS</p><h2>Outside the<br /><span>usual orbit.</span></h2></div></div>
+            <article class="personal-placeholder"><span>03 / INTERESTS</span><h3>Coming soon</h3><p>Interests and stories will be added here.</p></article>
+          </section>
+
+          <section class="section personal-play-section" id="personal-play">
+            <div class="section-heading"><div><p class="eyebrow">PLAY</p><h2>A little room<br /><span>to play.</span></h2></div></div>
+            <article class="personal-placeholder"><span>04 / FOR FUN</span><h3>Coming soon</h3><p>Personal favorites and things to explore will be added here.</p></article>
+          </section>
+
+          <footer class="contact-section personal-contact-section" id="personal-contact">
+            <h2>Get in <span>touch.</span></h2>
+            <div class="contact-actions">
+              <a class="contact-link" href="mailto:farizmarzuque@gmail.com">Email <span aria-hidden="true">↗</span></a>
+              <div class="contact-links">
+                <a class="contact-link" href="https://www.linkedin.com/in/farizmarzuque" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+                <a class="contact-link" href="https://github.com/Marzuque" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </footer>
+        </div>
+        <p class="sr-only" id="modeAnnouncement" aria-live="polite"></p>
       </div>
     </main>
 

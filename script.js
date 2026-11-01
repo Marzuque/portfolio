@@ -153,6 +153,32 @@ const constellations = [
     ],
     layout: [[24, 17], [32, 43], [40, 78], [72, 17], [64, 43], [56, 78]],
     connections: [[0, 1], [1, 2], [3, 4], [4, 5], [0, 3], [1, 4]]
+  },
+  {
+    title: "Student Management System",
+    subtitle: "Java desktop records and tuition manager",
+    kind: "Desktop application / data management",
+    timeframe: "JAVA 21 / SQLITE",
+    pattern: "student-management",
+    projectNodeIndex: 0,
+    projectLabelSide: "top",
+    description: "A JavaFX desktop application for student records, tuition charges, payments, and account adjustments, backed by a local SQLite database with Excel import and export.",
+    skills: [
+      { name: "Java 21", detail: "Built the desktop application on Java 21.", labelSide: "right" },
+      { name: "JavaFX & FXML", detail: "Created the desktop interface with JavaFX controls and FXML views.", labelSide: "bottom" },
+      { name: "SQLite", detail: "Persisted student and account data in a locally initialized SQLite database.", labelSide: "left" },
+      { name: "Apache POI", detail: "Supported Excel import and export for student management data.", labelSide: "left" },
+      { name: "Maven", detail: "Managed the Java build and JavaFX application workflow.", labelSide: "top" }
+    ],
+    strengths: [
+      { name: "Student and account records", detail: "Handled student CRUD basics alongside tuition charges, payments, and account adjustments." },
+      { name: "Database schema initialization", detail: "Initialized the local database schema automatically when the application starts." },
+      { name: "Excel data exchange", detail: "Added dialogs for importing and exporting spreadsheet data." },
+      { name: "Local-first data handling", detail: "Stored application data locally and excluded database files from version control." }
+    ],
+    layout: [[50, 49], [19, 47], [44, 15], [81, 37], [76, 76], [29, 79]],
+    connections: [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 5], [2, 3], [3, 4]],
+    link: { href: "https://github.com/Marzuque/StudentManagementSystem", label: "View source on GitHub" }
   }
 ];
 
@@ -160,8 +186,17 @@ const bootScreen = document.getElementById("bootScreen");
 const portfolio = document.getElementById("portfolio");
 const projectList = document.getElementById("projectList");
 const constellationMap = document.getElementById("constellationMap");
+const professionalContent = document.getElementById("professionalContent");
+const personalContent = document.getElementById("personalContent");
+const modeAnnouncement = document.getElementById("modeAnnouncement");
+const heroEyebrow = document.getElementById("heroEyebrow");
+const heroHeadingLead = document.getElementById("heroHeadingLead");
+const heroHeadingHighlight = document.getElementById("heroHeadingHighlight");
+const heroLede = document.getElementById("heroLede");
+const heroPrimaryAction = document.getElementById("heroPrimaryAction");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let bootTimer;
+let modeTransitionTimer;
 const videoRatios = new WeakMap();
 let activeVideo = null;
 let activeGameIndex = 0;
@@ -411,6 +446,60 @@ function renderGames(focusIndex = null) {
     gameDeck.querySelector(`[data-game-index="${focusIndex}"]`)?.focus({ preventScroll: true });
   }
 }
+
+function setPortfolioMode(mode) {
+  if (portfolio.dataset.mode === mode || portfolio.classList.contains("is-transitioning")) return;
+  const isPersonal = mode === "personal";
+  portfolio.classList.add("is-transitioning");
+  portfolio.dataset.mode = mode;
+  professionalContent.hidden = isPersonal;
+  personalContent.hidden = !isPersonal;
+
+  heroEyebrow.textContent = isPersonal ? "PERSONAL MODE" : "AI & AUTOMATION ENGINEER";
+  heroHeadingLead.textContent = isPersonal ? "The person" : "AI tools for";
+  heroHeadingHighlight.textContent = isPersonal ? "behind the work." : "real workflows.";
+  heroLede.textContent = isPersonal
+    ? "Personal introduction placeholder. Replace this with a short bio and the details you want to share."
+    : "I’m Marzuque, a recent computer science graduate working across machine learning, LLMs, and visual software. My toolkit includes retrieval-augmented generation (RAG) and LangChain; my projects focus on putting these ideas to practical use.";
+  heroPrimaryAction.href = isPersonal ? "#personal-about" : "#work";
+  heroPrimaryAction.firstChild.textContent = isPersonal ? "Explore the personal side " : "View selected work ";
+
+  portfolio.querySelectorAll("[data-mode-toggle]").forEach((toggle) => {
+    toggle.setAttribute("aria-pressed", String(isPersonal));
+    if (toggle.classList.contains("hero-art")) {
+      toggle.setAttribute("aria-label", `Switch from ${isPersonal ? "Personal" : "Professional"} to ${isPersonal ? "Professional" : "Personal"} mode`);
+    } else {
+      toggle.textContent = isPersonal ? "Back to professional mode" : "Explore personal mode";
+    }
+  });
+  portfolio.querySelectorAll(".main-nav a").forEach((link) => {
+    link.textContent = isPersonal ? link.dataset.personalLabel : link.dataset.professionalLabel;
+    link.href = isPersonal ? link.dataset.personalTarget : link.dataset.professionalTarget;
+  });
+  modeAnnouncement.textContent = `${isPersonal ? "Personal" : "Professional"} mode`;
+
+  if (isPersonal) {
+    projectList.querySelectorAll(".project-video").forEach((video) => {
+      video.pause();
+      videoPlaybackObserver.unobserve(video);
+    });
+    activeVideo = null;
+  } else {
+    projectList.querySelectorAll(".project-video").forEach(observeProjectVideo);
+  }
+
+  window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+  window.clearTimeout(modeTransitionTimer);
+  modeTransitionTimer = window.setTimeout(() => {
+    portfolio.classList.remove("is-transitioning");
+  }, reducedMotion ? 0 : 700);
+}
+
+portfolio.addEventListener("click", (event) => {
+  const toggle = event.target.closest("[data-mode-toggle]");
+  if (!toggle) return;
+  setPortfolioMode(portfolio.dataset.mode === "professional" ? "personal" : "professional");
+});
 
 document.getElementById("skipIntro").addEventListener("click", enterPortfolio);
 constellationMap.addEventListener("click", (event) => {

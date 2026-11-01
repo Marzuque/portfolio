@@ -1,6 +1,6 @@
 # Marzuque Fariz Portfolio
 
-This is a static, PS2-inspired professional portfolio with a short boot reveal, project videos, an NYC crash-map visualization, an interactive project constellation map, and a selectable GIF showcase for three small games. Personal content is not part of v1.
+This is a static, PS2-inspired portfolio with a short boot reveal, project videos, an NYC crash-map visualization, an interactive project constellation map, and a selectable GIF showcase for three small games. The unframed hero orbit fades into the page background, pauses and expands on hover/focus, and shows the active side in a Professional ↔ Personal toggle indicator. Activating it switches between the professional portfolio and a warm-toned personal view with placeholder content.
 
 ## Files
 - `index.html` — boot screen and professional page structure
@@ -30,10 +30,10 @@ The selected work section is driven by the `projects` array in `script.js`:
 2. Add a project screenshot URL to `imageUrl`, a local H.264 MP4 path to `videoUrl`, or a YouTube video ID to `youtubeId`. The Data Mining project uses the NYC crash-map screenshot; the Senior Design and research projects have local video slots.
 3. Local videos begin preloading during the intro; the portfolio waits for their first frames (up to 1.2 additional seconds) before entering, while reduced-motion visitors skip that wait. Videos autoplay muted only while at least 60% visible, and pause when scrolled away or when the tab is hidden. Native controls appear once a frame is ready and allow manual playback and sound. Keep clips compressed for web delivery; the current secure-code clip is about 47 MB.
 4. The Games shelf in `script.js` lists the three GIF paths and titles. Only the selected GIF is loaded at a time.
-5. The `constellations` array in `script.js` supplies the five project summaries, timeframes, skills, individual star layouts, connections, and optional links for the interactive star map.
-6. Update the experience and contact sections in `index.html` as needed.
+5. The `constellations` array in `script.js` supplies the six project summaries, timeframes, skills, individual star layouts, connections, and optional links for the interactive star map.
+6. Update the experience and contact sections in `index.html` as needed. Personal-mode placeholder copy is in the `personal-view` element in `index.html`; replace it when personal details are ready.
 
-The intro is silent and skippable. The page enters the professional portfolio directly after the intro.
+The intro is silent and skippable. The page enters the professional portfolio directly after the intro. The hero artwork and the header mode control can switch between Professional and Personal modes; either control supports keyboard activation, and reduced-motion preferences are respected.
 
 ## Upload readiness
 Both local MP4 files decoded in the current browser validation. Because the secure-code clip is about 47 MB, compress it for web delivery where practical. If a target browser reports a format error, re-encode as H.264 MP4 with AAC audio and fast-start metadata. The rest of the portfolio is a static site and can be deployed to GitHub Pages using the steps above.
