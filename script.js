@@ -195,10 +195,10 @@ const heroHeadingHighlight = document.getElementById("heroHeadingHighlight");
 const heroLede = document.getElementById("heroLede");
 const heroPrimaryAction = document.getElementById("heroPrimaryAction");
 const heroArt = document.querySelector(".hero-art");
-const heroArtCore = document.querySelector(".art-core");
+const heroArtFlipper = document.querySelector(".art-core-flipper");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let bootTimer;
-let modeTransitionTimer;
+let modeSwitchTimer;
 const videoRatios = new WeakMap();
 let activeVideo = null;
 let activeGameIndex = 0;
@@ -450,9 +450,8 @@ function renderGames(focusIndex = null) {
 }
 
 function setPortfolioMode(mode) {
-  if (portfolio.dataset.mode === mode || portfolio.classList.contains("is-transitioning")) return;
+  if (portfolio.dataset.mode === mode) return;
   const isPersonal = mode === "personal";
-  portfolio.classList.add("is-transitioning");
   portfolio.dataset.mode = mode;
   professionalContent.hidden = isPersonal;
   personalContent.hidden = !isPersonal;
@@ -491,15 +490,11 @@ function setPortfolioMode(mode) {
   }
 
   window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
-  window.clearTimeout(modeTransitionTimer);
-  modeTransitionTimer = window.setTimeout(() => {
-    portfolio.classList.remove("is-transitioning");
-  }, reducedMotion ? 0 : 700);
 }
 
 portfolio.addEventListener("click", (event) => {
   const toggle = event.target.closest("[data-mode-toggle]");
-  if (!toggle || heroArt.classList.contains("is-flipping") || portfolio.classList.contains("is-transitioning")) return;
+  if (!toggle || portfolio.classList.contains("is-flipping")) return;
   const nextMode = portfolio.dataset.mode === "professional" ? "personal" : "professional";
   if (reducedMotion) {
     setPortfolioMode(nextMode);
@@ -507,13 +502,16 @@ portfolio.addEventListener("click", (event) => {
   }
 
   const finishFlip = (animationEvent) => {
-    if (animationEvent.target !== heroArtCore || animationEvent.animationName !== "hero-portrait-flip") return;
-    heroArtCore.removeEventListener("animationend", finishFlip);
+    if (animationEvent.target !== heroArtFlipper || !animationEvent.animationName.startsWith("coin-flip-to-")) return;
+    heroArtFlipper.removeEventListener("animationend", finishFlip);
+    window.clearTimeout(modeSwitchTimer);
     heroArt.classList.remove("is-flipping", "is-flipping-to-personal", "is-flipping-to-professional");
-    setPortfolioMode(nextMode);
+    portfolio.classList.remove("is-flipping");
   };
-  heroArtCore.addEventListener("animationend", finishFlip);
+  heroArtFlipper.addEventListener("animationend", finishFlip);
+  portfolio.classList.add("is-flipping");
   heroArt.classList.add("is-flipping", `is-flipping-to-${nextMode}`);
+  modeSwitchTimer = window.setTimeout(() => setPortfolioMode(nextMode), 800);
 });
 
 document.getElementById("skipIntro").addEventListener("click", enterPortfolio);
