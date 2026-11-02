@@ -187,7 +187,6 @@ const portfolio = document.getElementById("portfolio");
 const projectList = document.getElementById("projectList");
 const constellationMap = document.getElementById("constellationMap");
 const professionalContent = document.getElementById("professionalContent");
-const personalContent = document.getElementById("personalContent");
 const modeAnnouncement = document.getElementById("modeAnnouncement");
 const heroEyebrow = document.getElementById("heroEyebrow");
 const heroHeadingLead = document.getElementById("heroHeadingLead");
@@ -454,16 +453,15 @@ function setPortfolioMode(mode) {
   const isPersonal = mode === "personal";
   portfolio.dataset.mode = mode;
   professionalContent.hidden = isPersonal;
-  personalContent.hidden = !isPersonal;
 
   heroEyebrow.textContent = isPersonal ? "PERSONAL MODE" : "AI & AUTOMATION ENGINEER";
-  heroHeadingLead.textContent = isPersonal ? "The person" : "AI tools for";
-  heroHeadingHighlight.textContent = isPersonal ? "behind the work." : "real workflows.";
+  heroHeadingLead.textContent = isPersonal ? "Work in" : "AI tools for";
+  heroHeadingHighlight.textContent = isPersonal ? "progress." : "real workflows.";
   heroLede.textContent = isPersonal
-    ? "Personal introduction placeholder. Replace this with a short bio and the details you want to share."
+    ? "More about me is coming soon."
     : "I’m Marzuque, a recent computer science graduate working across machine learning, LLMs, and visual software. My toolkit includes retrieval-augmented generation (RAG) and LangChain; my projects focus on putting these ideas to practical use.";
-  heroPrimaryAction.href = isPersonal ? "#personal-about" : "#work";
-  heroPrimaryAction.firstChild.textContent = isPersonal ? "Explore the personal side " : "View selected work ";
+  heroPrimaryAction.href = isPersonal ? "#top" : "#work";
+  heroPrimaryAction.firstChild.textContent = isPersonal ? "Coming soon " : "View selected work ";
 
   portfolio.querySelectorAll("[data-mode-toggle]").forEach((toggle) => {
     toggle.setAttribute("aria-pressed", String(isPersonal));
@@ -473,9 +471,9 @@ function setPortfolioMode(mode) {
       toggle.textContent = isPersonal ? "Back to professional mode" : "Explore personal mode";
     }
   });
-  portfolio.querySelectorAll(".main-nav a").forEach((link) => {
-    link.textContent = isPersonal ? link.dataset.personalLabel : link.dataset.professionalLabel;
-    link.href = isPersonal ? link.dataset.personalTarget : link.dataset.professionalTarget;
+  portfolio.querySelectorAll(".main-nav a[data-professional-label]").forEach((link) => {
+    link.textContent = link.dataset.professionalLabel;
+    link.href = link.dataset.professionalTarget;
   });
   modeAnnouncement.textContent = `${isPersonal ? "Personal" : "Professional"} mode`;
 
